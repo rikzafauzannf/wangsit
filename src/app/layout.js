@@ -8,7 +8,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
   title: "Dashboard Wangsit",
-  description: "Sebuah website untuk pemantauan penjualan wangsit yang berasa di kota tasikmalaya dalam hal penjualan bahan pangan terjangkau",
+  description: "Sebuah website untuk pemantauan penjualan wangsit yang berada di kota Tasikmalaya dalam hal penjualan bahan pangan terjangkau",
 };
 
 export default function RootLayout({ children }) {

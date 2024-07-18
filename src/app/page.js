@@ -1,16 +1,28 @@
+"use client"
+// import dynamic from 'next/dynamic';
 import SliderX from '@/components/sliderX'
 import SliderY from '@/components/sliderY'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // dummy data 
 import { dataKomoditas, dataTerlaris } from '@/lib/dummyData'
-import BarChart from '@/components/barChart'
 import CardPenjualan from '@/components/cardPenjualan'
 import { HiOutlineTrendingUp, HiTag } from "react-icons/hi";
 import Image from 'next/image'
+import BarChart from '@/components/barChart'
+
+
+// const BarChart = dynamic(() => import('@/components/barChart'), { ssr: false });
 
 const Home = () => {
-  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Kode yang mengakses objek window
+      // Misalnya:
+      console.log(window.location.href);
+    }
+  }, []);
+
   return (
     // outline
     <section className='flex md:flex-row flex-col justify-start items-start gap-4 '>
@@ -49,9 +61,9 @@ const Home = () => {
           <SliderY>
             {dataTerlaris.map((item,index)=>{
               return (
-                <>
-                <CardPenjualan key={index} icons={item.icons} kecamatan={item.kecamatan} komoditas={item.komoditas} terjual={item.terjual}/>
-                </>
+                <div key={index}>
+                <CardPenjualan icons={item.icons} kecamatan={item.kecamatan} komoditas={item.komoditas} terjual={item.terjual}/>
+                </div>
               )
             })}
           </SliderY>
